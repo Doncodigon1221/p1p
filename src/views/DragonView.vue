@@ -9,7 +9,7 @@ const {isFetching,data,error}=useFetch(url).get().json()
 
 
 
-  <DragonCard v-for="per in data.items" :key="per.id" />
+  <DragonCard v-for="per in data.items" :key="per.id" :personaje="per" />
 </template>
 
 <style scoped></style>

@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import DragonView from "@/views/DragonView.vue";
+import DragonView from '@/views/DragonView.vue'
+import ShowGroupsView from '@/views/showGroupsView.vue'
+import GroupTargect from "@/components/GroupTargect.vue";
 </script>
-
 <template>
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/dragon">Dragon</RouterLink>
+    <RouterLink to="/creategroup">Crear Grupo</RouterLink>
+<RouterLink to="/showgroups">show Groups</RouterLink>
+  </nav>
 
-  <dragon-view></dragon-view>
+  <router-view />
 </template>
 
 <style scoped>
