@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DragonView from '../views/DragonView.vue'
 import ShowGroupsView from '../views/showGroupsView.vue'
-import GroupTargect from "@/components/GroupTargect.vue";
-import GroupForm from "@/components/GroupForm.vue";
+import GroupForm from '@/components/GroupForm.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
