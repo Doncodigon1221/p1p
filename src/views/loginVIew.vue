@@ -7,22 +7,21 @@ const credentials = ref<Login>({
   email: '',
   password: '',
 })
-
+function login(){
 const { data, onFetchError, onFetchResponse } = useFetch('https://sutando-user.me/api/login', {
   method: 'post',
   headers: {
     Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
 })
   .post(credentials)
   .json()
 
 onFetchResponse(() => {
-  alert(data.value.)
+  alert(data.value.data.token)
 })
-onFetchError(() => {
-
-})
+onFetchError(() => {})}
 </script>
 <template>
   <div class="wrapper">
@@ -50,7 +49,6 @@ onFetchError(() => {
         />
       </div>
 
-      <p v-if="errorMsg" class="error">{{ errorMsg }}</p>
 
       <button @click="login">Iniciar sesión</button>
 
