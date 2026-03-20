@@ -2,7 +2,8 @@
 import { ref } from 'vue'
 import { type Login } from '@/types/types.ts'
 import { useFetch } from '@vueuse/core'
-
+import {useAuthStore} from '@/stores/authStore.ts'
+const uas=useAuthStore()
 const credentials = ref<Login>({
   email: '',
   password: '',
@@ -19,7 +20,7 @@ const { data, onFetchError, onFetchResponse } = useFetch('https://sutando-user.m
   .json()
 
 onFetchResponse(() => {
-  alert(data.value.data.token)
+  uas.setCredentials(data.value.data)
 })
 onFetchError(() => {})}
 </script>
