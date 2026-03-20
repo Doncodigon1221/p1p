@@ -18,7 +18,8 @@ const { data, onFetchError, onFetchResponse } = useFetch('https://sutando-user.m
 })
   .post(credentials)
   .json()
-
+/*aqui saco la data y se la mando al store y que lo aterrise en el
+  localstorage con el metodo que ingresa datos*/
 onFetchResponse(() => {
   uas.setCredentials(data.value.data)
 })
