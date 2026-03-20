@@ -18,10 +18,10 @@ const { data, onFetchError, onFetchResponse } = useFetch('https://sutando-user.m
   .json()
 
 onFetchResponse(() => {
-  alert(data.value.)
+  alert(data.value?.message || 'Login successful')
 })
 onFetchError(() => {
-
+  alert('Error occurred while logging in')
 })
 </script>
 <template>
