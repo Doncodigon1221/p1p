@@ -5,6 +5,7 @@ import ShowGroupsView from '../views/showGroupsView.vue'
 import GroupForm from '@/components/GroupForm.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import loginView from '@/views/loginVIew.vue'
+import dashboardView from '@/views/dashboardView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -39,6 +40,12 @@ const router = createRouter({
       name: 'login',
       component: loginView,
     },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: dashboardView,
+    },
+
     {
       path: '/about',
       name: 'about',

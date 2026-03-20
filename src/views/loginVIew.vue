@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { type Login } from '@/types/types.ts'
 import { useFetch } from '@vueuse/core'
 import {useAuthStore} from '@/stores/authStore.ts'
+import router from '@/router'
 const uas=useAuthStore()
 const credentials = ref<Login>({
   email: '',
@@ -22,6 +23,7 @@ const { data, onFetchError, onFetchResponse } = useFetch('https://sutando-user.m
   localstorage con el metodo que ingresa datos*/
 onFetchResponse(() => {
   uas.setCredentials(data.value.data)
+  router.push('/dashboard')
 })
 onFetchError(() => {})}
 </script>
