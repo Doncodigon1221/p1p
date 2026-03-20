@@ -18,18 +18,19 @@ function registrar() {
       method: 'post',
       headers: {
         Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
     },
   )
     .post(form)
     .json()
-
+  //se usa como evento para hacer una accion luego de aver generado la peticion
   onFetchResponse(() => {
-  router.push('/login')
+    alert(data.value.message)
+    router.push('/login')
   })
-  onFetchError(() => {
-    alert(data.value.error)
-  })
+  //igual que el de arriba nomas que salta si detecta un error
+  onFetchError(() => {})
 }
 </script>
 
