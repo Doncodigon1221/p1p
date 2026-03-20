@@ -10,7 +10,6 @@ interface Group {
   updated_at: string | null
 }
 
-// Recibimos el objeto 'group' como prop
 defineProps<{ group: Group}>()
 </script>
 
@@ -48,15 +47,11 @@ defineProps<{ group: Group}>()
       <span class="status-text">
         {{ group.active ? 'Estado: Activo ✔' : 'Estado: Finalizado ✘' }}
       </span>
-      <button class="view-more-btn">
-        Ver Grupo
-      </button>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Importamos una fuente más robusta si es posible, si no, system-ui */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 .group-card-vibrant {

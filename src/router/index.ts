@@ -3,7 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import DragonView from '../views/DragonView.vue'
 import ShowGroupsView from '../views/showGroupsView.vue'
 import GroupForm from '@/components/GroupForm.vue'
-
+import RegisterView from '@/views/RegisterView.vue'
+import loginView from '@/views/loginVIew.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -27,6 +28,16 @@ const router = createRouter({
       path: '/creategroup',
       name: 'creategroup',
       component: GroupForm,
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterView,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: loginView,
     },
     {
       path: '/about',

@@ -5,6 +5,7 @@
     <RouterLink to="/dragon">Dragon</RouterLink>
     <RouterLink to="/creategroup">Crear Grupo</RouterLink>
     <RouterLink to="/showgroups">show Groups</RouterLink>
+
   </nav>
 
   <router-view />
