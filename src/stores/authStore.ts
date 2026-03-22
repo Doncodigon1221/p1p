@@ -8,13 +8,16 @@ el token y el user*/
   const credentials = ref<SessionData | null>(
     JSON.parse(localStorage.getItem('useAuthStore') ?? 'null')
   )
+
   function setCredentials(data: SessionData) {
     credentials.value = data
     localStorage.setItem('useAuthStore', JSON.stringify(data))
   }
-  function removeCredentials() {
+
+
+  function logout() {
     credentials.value = null
     localStorage.removeItem('useAuthStore')
   }
-  return { credentials, setCredentials, removeCredentials }
+  return { credentials, setCredentials, logout}
 })

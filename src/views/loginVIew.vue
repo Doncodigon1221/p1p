@@ -2,30 +2,31 @@
 import { ref } from 'vue'
 import { type Login } from '@/types/types.ts'
 import { useFetch } from '@vueuse/core'
-import {useAuthStore} from '@/stores/authStore.ts'
+import { useAuthStore } from '@/stores/authStore.ts'
 import router from '@/router'
-const uas=useAuthStore()
+const uas = useAuthStore()
 const credentials = ref<Login>({
   email: '',
   password: '',
 })
-function login(){
-const { data, onFetchError, onFetchResponse } = useFetch('https://sutando-user.me/api/login', {
-  method: 'post',
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-})
-  .post(credentials)
-  .json()
-/*aqui saco la data y se la mando al store y que lo aterrise en el
+function login() {
+  const { data, onFetchError, onFetchResponse } = useFetch('https://sutando-user.me/api/login', {
+    method: 'post',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  })
+    .post(credentials)
+    .json()
+  /*aqui saco la data y se la mando al store y que lo aterrise en el
   localstorage con el metodo que ingresa datos*/
-onFetchResponse(() => {
-  uas.setCredentials(data.value.data)
-  router.push('/dashboard')
-})
-onFetchError(() => {})}
+  onFetchResponse(() => {
+    uas.setCredentials(data.value.data)
+    router.push('/dashboard')
+  })
+  onFetchError(() => {})
+}
 </script>
 <template>
   <div class="wrapper">
@@ -52,7 +53,6 @@ onFetchError(() => {})}
           placeholder="••••••••"
         />
       </div>
-
 
       <button @click="login">Iniciar sesión</button>
 
