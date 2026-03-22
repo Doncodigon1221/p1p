@@ -2,7 +2,7 @@
 import { useFetch } from '@vueuse/core'
 import GroupTargect from '@/components/GroupTargect.vue'
 
-const url = "https://untabulable-incomparable-lean.ngrok-free.dev/api/groups"
+const url = "https://sutando-user.me/api/groups"
 
 const { data, error, isFetching } = useFetch(url, {
   method: 'GET',

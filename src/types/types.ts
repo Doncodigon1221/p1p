@@ -1,3 +1,5 @@
+import { ref } from 'vue'
+
 export interface Register {
   name: string
   lastname: string
@@ -27,5 +29,10 @@ export interface SessionData {
     }
     created_at: string
     updated_at: string
-  }
+  }}
+
+  export interface GroupData{
+   period_id:number,
+   name:string
+   description:string
 }

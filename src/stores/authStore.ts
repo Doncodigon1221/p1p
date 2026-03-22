@@ -13,11 +13,14 @@ el token y el user*/
     credentials.value = data
     localStorage.setItem('useAuthStore', JSON.stringify(data))
   }
+  function getCredentials(){
+    JSON.stringify(localStorage.getItem('useAuthStore'))
+  }
 
 
   function logout() {
     credentials.value = null
     localStorage.removeItem('useAuthStore')
   }
-  return { credentials, setCredentials, logout}
+  return { credentials, setCredentials, logout, getCredentials }
 })

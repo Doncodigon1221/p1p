@@ -1,27 +1,33 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useFetch } from '@vueuse/core'
+import { type GroupData } from '@/types/types.ts'
 
 const owner = ref('')
 const period_id = ref(0)
 const name = ref('')
 const description = ref('')
-
+const groupdata = ref<GroupData>({
+  period_id: 0,
+  name: '',
+  description: '',
+})
 async function saveGroup() {
-  const url = "https://untabulable-incomparable-lean.ngrok-free.dev/api/group/create"
-  const response =  useFetch(url, {
-    method: 'POST',
+  const url = 'https://untabulable-incomparable-lean.ngrok-free.dev/api/groups'
+  const { data, onFetchError, onFetchResponse } = useFetch(url, {
+    method: 'post',
     headers: {
-      'ngrok-skip-browser-warning': 'true',
-      'Content-Type': 'application/json'
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+
     },
-    body: JSON.stringify({
-      owner: owner.value,
-      period_id: period_id.value,
-      name: name.value,
-      description: description.value
-    })
   })
+    .post(groupdata)
+    .json()
+  onFetchResponse(() => {
+    data.value.message
+  })
+  onFetchError(() => {})
 }
 </script>
 
@@ -74,7 +80,11 @@ async function saveGroup() {
   align-items: center;
   min-height: 100vh;
   background-color: #f4f7f9;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
   padding: 20px;
 }
 
@@ -165,7 +175,9 @@ input::placeholder {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.1s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.1s ease;
 }
 
 .btn-save:hover {
