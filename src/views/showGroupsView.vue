@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import { useFetch } from '@vueuse/core'
 import GroupTargect from '@/components/GroupTargect.vue'
+import { useapi } from '@/Composables/useApi.ts'
 
-const url = "https://sutando-user.me/api/groups"
 
-const { data, error, isFetching } = useFetch(url, {
+const { data, error, isFetching } =useapi("/groups", {
   method: 'GET',
-  headers: {
-    'ngrok-skip-browser-warning': 'true',
-    'Accept': 'application/json'
-  }
 }).json()
 </script>
 

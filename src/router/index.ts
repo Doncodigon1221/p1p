@@ -23,7 +23,7 @@ const router = createRouter({
       component: DragonView,
     },
     {
-      path: '/groups',
+      path: '/showgroups',
       name: 'showgroups',
       component: ShowGroupsView,
       meta: { requiresAuth: true, rol: 1 },

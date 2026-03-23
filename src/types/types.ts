@@ -1,4 +1,3 @@
-import { ref } from 'vue'
 
 export interface Register {
   name: string
