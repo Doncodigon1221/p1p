@@ -37,7 +37,7 @@ defineProps<{ group: Group}>()
           <span class="data-value highlight-blue">#{{ group.id }}</span>
         </div>
         <div class="data-box">
-          <span class="data-label">DOCENTE ID</span>
+          <span class="data-label">DOCENTE </span>
           <span class="data-value highlight-purple">{{ group.owner }}</span>
         </div>
       </div>
