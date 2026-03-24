@@ -5,8 +5,9 @@ import ShowGroupsView from '../views/showGroupsView.vue'
 import GroupForm from '@/components/GroupForm.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import loginView from '@/views/loginVIew.vue'
-import dashboardView from '@/views/dashboardView.vue'
+import DashboardAdminView from '@/views/dashboardAdminView.vue'
 import { useAuthStore } from '@/stores/authStore.ts'
+import DashboardStudentView from '@/views/dashboardStudentView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,12 @@ const router = createRouter({
       path: '/dragon',
       name: 'Dragon',
       component: DragonView,
+    },
+    {
+      path: '/dashboardstudent',
+      name: 'dashboardtudent',
+      component: DashboardStudentView,
+      meta: { requiresAuth: true, rol: 3 },
     },
     {
       path: '/showgroups',
@@ -44,10 +51,10 @@ const router = createRouter({
       component: loginView,
     },
     {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: dashboardView,
-      meta: { requiresAuth: true },
+      path: '/dashboardadmin',
+      name: 'dashboardadmin',
+      component: DashboardAdminView,
+      meta: { requiresAuth: true,rol:1 },
     },
 
     {

@@ -23,9 +23,15 @@ function login() {
   localstorage con el metodo que ingresa datos*/
   onFetchResponse(() => {
     uas.setCredentials(data.value.data)
-    router.push('/dashboard')
+    if (uas.credentials?.user.role.id == 1) {
+      router.push('/dashboardadmin')
+    }
+    if (uas.credentials?.user.role.id == 3) {
+      router.push('/dashboardstudent')
+    }
   })
-  onFetchError(() => {})
+  onFetchError(() => {
+  })
 }
 </script>
 <template>

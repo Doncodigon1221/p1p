@@ -9,6 +9,9 @@ function logout() {
   ua.logout()
   router.push('/login')
 }
+function groups(){
+  router.push('/showgroups')
+}
 </script>
 
 <template>
@@ -23,6 +26,8 @@ function logout() {
           {{ ua.credentials?.user.name.charAt(0) }}{{ ua.credentials?.user.lastname.charAt(0) }}
         </div>
         <button class="logout-btn" @click="logout">Cerrar sesión</button>
+        <button class="logout-btn" @click="groups">ver grupos</button>
+
       </div>
     </header>
 

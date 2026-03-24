@@ -35,3 +35,33 @@ export interface SessionData {
    name:string
    description:string
 }
+
+export interface Group {
+  id: number
+  name: string
+  description: string
+  active: boolean
+  owner: {
+    id: number
+    name: string
+    lastname: string
+    email: string
+    cellphone: string
+    active: boolean
+    created_at: string | null
+    updated_at: string | null
+  }
+  period: {
+    id: number
+    name: string
+    year: number
+    start_date: string
+    end_date: string
+    created_at: string | null
+    updated_at: string | null
+  }
+  students_count: number
+  assignments_count: number
+  created_at: string | null
+  updated_at: string | null
+}

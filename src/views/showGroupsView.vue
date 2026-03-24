@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import GroupTargect from '@/components/GroupTargect.vue'
 import { useapi } from '@/Composables/useApi.ts'
+import router from '@/router'
 
-
-const { data, error, isFetching } =useapi("/groups", {
+const { data, error, isFetching } = useapi('/groups', {
   method: 'GET',
 }).json()
+
+function back() {
+  router.push('/dashboardadmin')
+}
 </script>
 
 <template>
@@ -13,6 +17,7 @@ const { data, error, isFetching } =useapi("/groups", {
     <header class="page-header">
       <div class="header-content">
         <h1>Explorar Grupos</h1>
+        <button class="logout-btn" @click="back">Volver</button>
         <p v-if="data">Mostrando {{ data.data.length }} grupos académicos registrados</p>
       </div>
     </header>
@@ -28,11 +33,7 @@ const { data, error, isFetching } =useapi("/groups", {
     </div>
 
     <div v-if="data && data.data" class="groups-grid">
-      <GroupTargect
-        v-for="group in data.data"
-        :key="group.id"
-        :group="group"
-      />
+      <GroupTargect v-for="group in data.data" :key="group.id" :group="group" />
     </div>
   </div>
 </template>
@@ -53,6 +54,19 @@ const { data, error, isFetching } =useapi("/groups", {
   margin-bottom: 40px;
   border-left: 8px solid #667eea;
   padding-left: 20px;
+}
+.logout-btn {
+  font-size: 14px;
+  color: #a32d2d;
+  background: none;
+  border: 1px solid #f09595;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.logout-btn:hover {
+  background: #c0e3e3;
 }
 
 .page-header h1 {
@@ -96,8 +110,12 @@ const { data, error, isFetching } =useapi("/groups", {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Banner de error */
