@@ -131,11 +131,7 @@ button {
 button:hover {
   opacity: 0.85;
 }
-.error {
-  font-size: 0.8rem;
-  color: #c0392b;
-  margin: 0 0 0.75rem;
-}
+
 .register-link {
   text-align: center;
   font-size: 0.8rem;
