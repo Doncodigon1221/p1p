@@ -2,13 +2,18 @@
 import GroupTargect from '@/components/GroupTargect.vue'
 import { useapi } from '@/Composables/useApi.ts'
 import router from '@/router'
-
+import { useAuthStore } from '@/stores/authStore.ts'
+const uas = useAuthStore()
 const { data, error, isFetching } = useapi('/groups', {
   method: 'GET',
 }).json()
-
 function back() {
-  router.push('/dashboardadmin')
+  if (uas.credentials?.user.role.id == 1) {
+    router.push('/dashboardadmin')
+  }
+  if (uas.credentials?.user.role.id == 2) {
+    router.push('/dashboardteacherview')
+  }
 }
 </script>
 

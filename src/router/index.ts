@@ -34,7 +34,7 @@ const router = createRouter({
       path: '/showgroups',
       name: 'showgroups',
       component: ShowGroupsView,
-      meta: { requiresAuth: true, rol:1 },
+      meta: { requiresAuth: true, rol:[1,2] },
     },
 
     {
@@ -86,12 +86,20 @@ router.beforeEach((to, from, next) => {
       next({ name: 'login' })
     } else {
       if (to.matched.some((record) => record.meta.rol)) {
-        if (authStore.credentials.user.role.id == to.meta.rol) {
-          next() // Permitir acceso
+        const userRole = authStore.credentials.user.role.id
+        const rolMeta = to.meta.rol
+
+        if (
+          (Array.isArray(rolMeta) && rolMeta.indexOf(userRole) !== -1) ||
+          userRole === rolMeta
+        ) {
+          next()
         } else {
           next({ name: 'login' })
         }
-      } else {
+      }
+
+      else {
         next() // Permitir acceso
       }
     }
