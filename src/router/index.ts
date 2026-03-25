@@ -8,6 +8,7 @@ import loginView from '@/views/loginVIew.vue'
 import DashboardAdminView from '@/views/dashboardAdminView.vue'
 import { useAuthStore } from '@/stores/authStore.ts'
 import DashboardStudentView from '@/views/dashboardStudentView.vue'
+import dashboardTeacherView from "@/views/dashboardTeacherView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,8 +34,9 @@ const router = createRouter({
       path: '/showgroups',
       name: 'showgroups',
       component: ShowGroupsView,
-      meta: { requiresAuth: true, rol: 1 },
+      meta: { requiresAuth: true, rol:1 },
     },
+
     {
       path: '/creategroup',
       name: 'creategroup',
@@ -51,10 +53,17 @@ const router = createRouter({
       component: loginView,
     },
     {
+      path: '/dashboardteacherview',
+      name: 'dashboardteacherview',
+      component: dashboardTeacherView,
+      meta: { requiresAuth: true, rol: 2},
+    },
+
+    {
       path: '/dashboardadmin',
       name: 'dashboardadmin',
       component: DashboardAdminView,
-      meta: { requiresAuth: true,rol:1 },
+      meta: { requiresAuth: true, rol: 1 },
     },
 
     {

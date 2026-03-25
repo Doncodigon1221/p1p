@@ -29,6 +29,9 @@ function login() {
     if (uas.credentials?.user.role.id == 3) {
       router.push('/dashboardstudent')
     }
+    if (uas.credentials?.user.role.id == 2) {
+      router.push('/dashboardteacherview')
+    }
   })
   onFetchError(() => {
   })
