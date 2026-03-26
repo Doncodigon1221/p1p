@@ -10,7 +10,7 @@ const credentials = ref<Login>({
   password: '',
 })
 function login() {
-  const { data, onFetchError, onFetchResponse } = useFetch('https://sutando-user.me/api/login', {
+  const { data, onFetchError, onFetchResponse } = useFetch('https://api.sutando-user.me/api/login', {
     method: 'post',
     headers: {
       Accept: 'application/json',

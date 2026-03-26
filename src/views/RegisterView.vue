@@ -12,8 +12,8 @@ const form = ref<Register>({
 })
 
 function registrar() {
-  const { data, error, onFetchError, onFetchResponse } = useFetch(
-    'https://sutando-user.me/api/register',
+  const { data, onFetchError, onFetchResponse } = useFetch(
+    'https://api.sutando-user.me/api/register',
     {
       method: 'post',
       headers: {
